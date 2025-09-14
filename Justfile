@@ -1,4 +1,4 @@
-export image_name := env("IMAGE_NAME", "Orcus")
+export image_name := env("IMAGE_NAME", "orcus")
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
@@ -277,7 +277,7 @@ run-vm-iso $target_image=("localhost/" + image_name) $tag=default_tag: && (_run-
 
 # Run a virtual machine using systemd-vmspawn
 [group('Run Virtal Machine')]
-spawn-vm rebuild="0" type="qcow2" ram="6G":
+spawn-vm rebuild="0" type="iso" ram="6G":
     #!/usr/bin/env bash
 
     set -euo pipefail

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Development;TextEditor;
+Comment=Life, the Universe, Everything
+Exec=emacs %F
+GenericName=Life, the Universe, Everything
+Icon=/usr/share/icons/doom-emacs/doom-emacs.svg
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+Name=Doom Emacs
+NoDisplay=false
+Path=
+StartupNotify=true
+StartupWMClass=Emacs
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

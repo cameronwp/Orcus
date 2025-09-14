@@ -2,26 +2,50 @@
 
 set -ouex pipefail
 
+
+### various branding and naming
+
 /ctx/branding.sh
 
-### Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
+### Install packages to root
 
 # installs packages from fedora repos
-dnf5 install -y $(</ctx/fedora-packages.txt)
+dnf5 install -y $(</ctx/packages.txt)
+
+# install VS Code
+rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf5 install -y code
+
+# remove the firefox RPM that's missing codecs
+dnf5 remove -y firefox
+
 dnf5 clean all
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
+### Doom Emacs dependencies
+
+# https://github.com/jessfraz/dockfmt/releases
+DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
+curl -fSL "https://github.com/jessfraz/dockfmt/releases/download/v0.3.3/dockfmt-linux-amd64" -o "/tmp/dockfmt"
+echo "${DOCKFMT_SHA256} /tmp/dockfmt" | sha256sum -c -
+install /tmp/dockfmt /usr/bin
+
+# remove old desktop files before adding our custom file later
+rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
+
+
+### calibre
+
+wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=/opt isolated=y
+
+
+### install oh-my-zsh
+
+git clone https://github.com/ohmyzsh/ohmyzsh /opt/ohmyzsh
+
+
+### systemd
 
 systemctl enable podman.socket

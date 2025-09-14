@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Calibre
+Comment=Manage your e-book library
+Exec=/opt/calibre/calibre
+Icon=/usr/share/icons/calibre/calibre.png
+Terminal=false
+Type=Application
+Categories=Office;Ebook;
