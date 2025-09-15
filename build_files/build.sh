@@ -21,6 +21,9 @@ dnf5 install -y code
 # remove the firefox RPM that's missing codecs
 dnf5 remove -y firefox
 
+# VMs
+dnf5 group install -y --with-optional virtualization
+
 dnf5 clean all
 
 
@@ -39,3 +42,4 @@ rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desk
 ### systemd
 
 systemctl enable podman.socket
+systemctl enable libvirtd
