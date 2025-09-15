@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 
-### various branding and naming
+### various vanity changes
 
 /ctx/branding.sh
 
