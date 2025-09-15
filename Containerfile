@@ -6,7 +6,7 @@ FROM ghcr.io/ublue-os/kinoite-main:latest
 
 ARG IMAGE="orcus"
 ARG BASE_IMAGE="kinoite"
-ARG VERSION="latest"
+ARG VERSION=""
 ARG SHA_HEAD_SHORT=""
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
