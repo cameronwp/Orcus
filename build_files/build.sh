@@ -36,16 +36,6 @@ install /tmp/dockfmt /usr/bin
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
 
 
-### calibre
-
-wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=/opt isolated=y
-
-
-### install oh-my-zsh
-
-git clone https://github.com/ohmyzsh/ohmyzsh /opt/ohmyzsh
-
-
 ### systemd
 
 systemctl enable podman.socket
