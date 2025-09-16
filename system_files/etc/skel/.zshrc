@@ -18,7 +18,7 @@ export KEYTIMEOUT=1
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="hand"
+# ZSH_THEME="random"
 
 # plugins=(docker git git-prompt tmux vi-mode zsh-completions zsh-autosuggestions)
 
@@ -28,10 +28,7 @@ export KEYTIMEOUT=1
 # source $ZSH/custom/venv.zsh
 
 # fzf
-#source /home/cameron/.fzf.zsh
 source /usr/share/fzf/shell/key-bindings.zsh
-#source /usr/share/fzf/completion.zsh
-#source ~ZSH_CUSTOM/plugins/fzf-tab/fzf-tab.zsh
 
 # doom emacs
 export PATH=$PATH:$HOME/.emacs.d/bin
