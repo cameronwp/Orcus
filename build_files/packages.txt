@@ -25,6 +25,7 @@ jq
 kde-gtk-config
 libheif-devel
 libtool
+libvterm
 lsd
 lsof
 lualatex
