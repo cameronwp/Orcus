@@ -31,9 +31,11 @@ cat <<<"$(jq ".\"image-name\" |= \"orcus\" |
 >/tmp/image-info.json
 cp /tmp/image-info.json /usr/share/ublue-os/image-info.json
 
-sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"$(echo "${IMAGE^}" | cut -d - -f1) (Version: ${version_date} / FROM ${BASE_IMAGE^} $(rpm -E %fedora))\"|" /usr/lib/os-release
-sed -i "s|^VERSION=.*|VERSION=\"${version_date} (${BASE_IMAGE^})\"|" /usr/lib/os-release
-sed -i "s|^OSTREE_VERSION=.*|OSTREE_VERSION=\'${VERSION}\'|" /usr/lib/os-release
-echo "HOME_URL=\"https://github.com/cameronwp/${IMAGE}\"" >>/usr/lib/os-release
+sed -i "s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME=\"${IMAGE}\"" /usr/lib/os-release
+sed -i "s|^HOME_URL=.*|HOME_URL=\"https://github.com/cameronwp/${IMAGE}\"" /usr/lib/os-release
+sed -i "s|^LOGO=.*|LOGO=\"${IMAGE}\"" /usr/lib/os-release
 echo "IMAGE_ID=\"${IMAGE}\"" >>/usr/lib/os-release
 echo "IMAGE_VERSION=\"${version_date}\"" >>/usr/lib/os-release
+sed -i "s|^OSTREE_VERSION=.*|OSTREE_VERSION=\'${VERSION}\'|" /usr/lib/os-release
+sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"$(echo "${IMAGE^}" | cut -d - -f1) (Version: ${version_date} / FROM ${BASE_IMAGE^} $(rpm -E %fedora))\"|" /usr/lib/os-release
+sed -i "s|^VERSION=.*|VERSION=\"${version_date} (${BASE_IMAGE^})\"|" /usr/lib/os-release
