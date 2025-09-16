@@ -35,11 +35,11 @@ curl -fSL "https://github.com/jessfraz/dockfmt/releases/download/v0.3.3/dockfmt-
 echo "${DOCKFMT_SHA256} /tmp/dockfmt" | sha256sum -c -
 install /tmp/dockfmt /usr/bin
 
-# remove old desktop files before adding our custom file later
+# remove old desktop files for emacs before copying our custom file over later
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
 
 
 ### systemd
 
-systemctl enable podman.socket
 systemctl enable libvirtd
+systemctl enable podman.socket
