@@ -1,6 +1,6 @@
 # Orcus
 
-![Orcus](system_files/usr/share/icons/orcus/orcus.png)
+![Orcus](system_files/usr/share/pixmaps/orcus.png)
 
 Very lightly modified Kinoite built for my laptop and dev workflows.
 

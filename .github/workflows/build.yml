@@ -17,7 +17,7 @@ on:
 env:
   IMAGE_DESC: "Custom OS for my Framework 13"
   IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
-  IMAGE_LOGO_URL: "https://github.com/cameronwp/Orcus/blob/main/system_files/usr/share/icons/orcus/orcus.png?raw=true"  # see https://artifacthub.io/
+  IMAGE_LOGO_URL: "https://github.com/cameronwp/Orcus/blob/main/system_files/usr/share/pixmaps/orcus.png?raw=true"
   IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
   DEFAULT_TAG: "latest"
@@ -29,7 +29,7 @@ concurrency:
 jobs:
   build_push:
     name: Build and push image
-    runs-on: self-hosted
+    runs-on: ubuntu-24.04
 
     permissions:
       contents: read
