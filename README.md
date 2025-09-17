@@ -12,10 +12,10 @@ Published images: [ghcr.io/cameronwp/orcus](https://github.com/cameronwp/Orcus/p
 A very lightly modified Kinoite build for my laptop and dev workflows.
 
 Features:
-* Layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main)
-* lots of my favoriate utilities and programming langauges, see [](build_files/packages.txt)
+* layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main)
+* lots of my favoriate utilities and programming langauges, see [packages.txt](build_files/packages.txt)
 * ready-to-use virtualization
-* `zsh` is the default shell with vim mode
+* `zsh` is the default shell. vim mode is on by default
 * a few default dotfiles
 
 See the template's [README](docs/README.md) for more info.
