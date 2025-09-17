@@ -10,8 +10,9 @@ General
 After creating a new user
 - [ ] the shell is `zsh` by default
 - [X] custom dotfiles are present
-- [ ] plasma defaults to dark mode
-- [ ] plasma has kara desktop switcher installed
+- [ ] ohmyzsh is active
+- [X] plasma defaults to dark mode
+- [X] plasma has kara desktop switcher installed
 - [ ] plasma has updated keyboard shortcuts
   - [ ] alt-tab behavior
   - [ ] launch media key to show/hide desktop

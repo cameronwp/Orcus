@@ -13,17 +13,17 @@ export KEYTIMEOUT=1
 
 # setup oh-my-zsh
 
-# export ZSH=/opt/ohmyzsh
+export ZSH=/etc/ohmyzsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="random"
+ZSH_THEME="random"
 
 # plugins=(docker git git-prompt tmux vi-mode zsh-completions zsh-autosuggestions)
 
 # actually turn on oh-my-zsh
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 # custom aliases
 # source $ZSH/custom/venv.zsh
 

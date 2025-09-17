@@ -39,6 +39,11 @@ install /tmp/dockfmt /usr/bin
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
 
 
+### oh-my-zsh
+
+git clone https://github.com/ohmyzsh/ohmyzsh /etc/ohmyzsh
+
+
 ### systemd
 
 systemctl enable libvirtd

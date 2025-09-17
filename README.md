@@ -15,7 +15,9 @@ A gently modified Kinoite build for my specific development needs and general pr
 * layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main)
 * lots of my favoriate utilities and programming langauges, see [packages.txt](build_files/packages.txt)
 * ready-to-use virtualization
-* `zsh` is the default shell. vim mode is on by default
+* `zsh` is the default shell with:
+  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+  - vim mode
 * defaults to a dark plasma theme with a better desktop selector and lightly modified shortcuts
   - `alt-tab` window switching that behaves like GNOME (sorry, I'm just used to it)
   - `ctrl-alt-t` to open Konsole
