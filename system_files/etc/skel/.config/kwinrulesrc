@@ -1,0 +1,21 @@
+[75f45ec0-7114-4bb5-b517-ad6691bd4323]
+Description=Application settings for emacs
+desktopfile=doom-emacs
+desktopfilerule=3
+wmclass=emacs-30.2-pgtk emacs
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=2
+rules=75f45ec0-7114-4bb5-b517-ad6691bd4323,d1d04a08-2acf-434f-8895-3983e56563ee
+
+[d1d04a08-2acf-434f-8895-3983e56563ee]
+Description=Window settings for emacs
+desktopfile=doom-emacs
+desktopfilerule=3
+title=*GNU Emacs* - GNU Emacs at orcus
+types=1
+wmclass=\semacs
+wmclasscomplete=true
+wmclassmatch=1
