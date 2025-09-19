@@ -1,0 +1,3 @@
+[submodule "system_files/etc/emacs"]
+	path = system_files/usr/local/etc/emacs
+	url = https://github.com/doomemacs/doomemacs

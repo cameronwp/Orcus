@@ -1,0 +1,11 @@
+[Unit]
+Description=Install or update Doom Emacs
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/libexec/doom-update.sh
+Type=oneshot
+RemainAfterExit=false
+
+[Install]
+WantedBy=multi-user.target

@@ -12,6 +12,7 @@ fd-find
 findutils
 fira-code-fonts
 gawk
+gimp
 git-all
 git-lfs
 golang
@@ -20,6 +21,7 @@ gnuplot
 graphviz
 ImageMagick
 ImageMagick-heic
+inkscape
 julia
 jq
 kde-gtk-config
@@ -46,8 +48,10 @@ sbcl
 shadow-utils
 shellcheck
 shfmt
+sigil
 sqlite
 steam
+stellarium
 tcpdump
 traceroute
 util-linux-user

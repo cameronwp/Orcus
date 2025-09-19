@@ -1,0 +1,5 @@
+#!/bin/bash
+
+systemctl --user enable doom-update.service
+
+exit 0

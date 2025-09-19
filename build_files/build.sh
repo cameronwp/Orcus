@@ -3,12 +3,16 @@
 set -ouex pipefail
 
 
+###
 ### various vanity changes
+###
 
 /ctx/branding.sh
 
 
-### Install packages to root
+###
+### manage root packages
+###
 
 # installs packages from fedora repos
 dnf5 install -y $(</ctx/packages.txt)
@@ -17,6 +21,11 @@ dnf5 install -y $(</ctx/packages.txt)
 rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf5 install -y code
+
+# install tailscale
+# https://tailscale.com/kb/1511/install-fedora-2
+sudo dnf5 config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+sudo dnf5 install -y tailscale
 
 # remove the firefox RPM that's missing codecs
 dnf5 remove -y firefox
@@ -27,7 +36,9 @@ dnf5 group install -y --with-optional virtualization
 dnf5 clean all
 
 
-### Doom Emacs dependencies
+###
+### related to Doom Emacs
+###
 
 # https://github.com/jessfraz/dockfmt/releases
 DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
@@ -39,12 +50,18 @@ install /tmp/dockfmt /usr/bin
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
 
 
+###
 ### oh-my-zsh
+###
 
-git clone https://github.com/ohmyzsh/ohmyzsh /etc/ohmyzsh
+git clone https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 
 
+###
 ### systemd
+###
 
 systemctl enable libvirtd
 systemctl enable podman.socket
+# uncomment to turn on tailscale by default
+# systemctl enable tailscaled
