@@ -1,3 +1,9 @@
 [submodule "system_files/etc/emacs"]
 	path = system_files/usr/local/etc/emacs
 	url = https://github.com/doomemacs/doomemacs
+[submodule "system_files/etc/skel/.config/ohmyzsh-custom/plugins/zsh-completions"]
+	path = system_files/etc/skel/.config/ohmyzsh-custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "system_files/etc/skel/.config/ohmyzsh-custom/plugins/zsh-autosuggestions"]
+	path = system_files/etc/skel/.config/ohmyzsh-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git

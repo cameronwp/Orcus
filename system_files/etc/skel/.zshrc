@@ -11,8 +11,11 @@ export VISUAL=/usr/bin/vim
 bindkey -v
 export KEYTIMEOUT=1
 
-# setup oh-my-zsh
+# this is a non-standard setup for oh-my-zsh that lets us update omz when this image is built
+# - base installation is in /usr/local/etc/ohmyzsh - you can't edit this
+# - plugins and all customizations live in $HOME/.config/ohmyzsh-custom - you can edit this
 export ZSH=/usr/local/etc/ohmyzsh
+export ZSH_CUSTOM=$HOME/.config/ohmyzsh-custom
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -20,11 +23,12 @@ export ZSH=/usr/local/etc/ohmyzsh
 ZSH_THEME="random"
 
 plugins=(docker git git-prompt tmux vi-mode zsh-completions zsh-autosuggestions)
+fpath=($ZSH/completion $fpath)
+fpath+=${ZSH_CUSTOM}/plugins/zsh-completions/src
+autoload -U compinit && compinit
 
 # actually turn on oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-# custom aliases
-# source $ZSH/custom/venv.zsh
 
 # fzf
 source /usr/share/fzf/shell/key-bindings.zsh
