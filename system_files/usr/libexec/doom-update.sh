@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 
-notify-send -a "Doom Emacs" "Updating Doom" "Please refrain from opening Emacs for a moment"
+notify-send -a "Doom Emacs Updater" "Starting" "Please refrain from opening Emacs for a moment"
 
 # get doom emacs ready to go, regardless of whether or not it is already installed
 
@@ -26,10 +26,10 @@ if [ ! -d $HOME/.config/emacs ]; then
 fi
 
 $HOME/.config/emacs/bin/doom install --doomdir ~/.config/doom --force || \
-  (notify-send -a "Doom Emacs" "Something went wrong" "Failed to install Doom. Try running 'doom install' on your own" && exit 1)
+  (notify-send -a "Doom Emacs Updater" "Something went wrong" "Failed to install Doom. Try running 'doom install' on your own" && exit 1)
 $HOME/.config/emacs/bin/doom sync --doomdir ~/.config/doom -e --force || \
-  (notify-send -a "Doom Emacs" "Something went wrong" "Failed to sync Doom packages. Try running 'doom sync' on your own" && exit 1)
+  (notify-send -a "Doom Emacs Updater" "Something went wrong" "Failed to sync Doom packages. Try running 'doom sync' on your own" && exit 1)
 
-notify-send -a "Doom Emacs" "Update complete" "Ready to go\! Yay Evil\!"
+notify-send -a "Doom Emacs Updater" "Success" "Ready to go\! Yay Evil\!"
 
 rm -rf $OLD_BACKUPS
