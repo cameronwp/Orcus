@@ -2,13 +2,17 @@
 
 set -ouex pipefail
 
+function popup() {
+  notify-send -a "Doom Emacs Updater" "$1" "$2" --icon=/usr/share/icons/doom-emacs/doom-emacs.svg
+}
 
-notify-send -a "Doom Emacs Updater" "Starting update" "Please refrain from opening Emacs for a moment"
+popup "Starting update" "Please refrain from opening Emacs for a moment"
 
 # get doom emacs ready to go, regardless of whether or not it is already installed
 
 NOW=$(date +%Y%m%d%H%M)
-OLD_BACKUPS=$(find $HOME -maxdepth 2 -regex '.*emacs[\.d]*\.backup.*' 2>/dev/null)
+# ignore all errors. if there's a permissions error, find will exit with an error code
+OLD_BACKUPS=$(find $HOME -maxdepth 2 -regex '.*emacs[\.d]*\.backup.*' 2>/dev/null || true)
 CURRENT_DOOM_LOCATION=""
 BACKED_UP_DOOM=""
 LOG_FOLDER=$HOME/.local/doom-updater
@@ -23,7 +27,7 @@ function failed {
     echo "Returned $BACKED_UP_DOOM to $CURRENT_DOOM_LOCATION" >> $THESE_LOGS
     echo "FAILURE" >> $THESE_LOGS
   fi
-  notify-send -a "Doom Emacs Updater" "Something went wrong" "Failed to $@ Doom. See $THESE_LOGS for logs. All changes to your current setup have been reverted"
+  popup "Something went wrong" "Failed to $@ Doom. See $THESE_LOGS for logs. All changes to your current setup have been reverted"
 }
 
 # backup ~/.emacs.d if it exists
@@ -61,4 +65,4 @@ rm -rf $OLD_BACKUPS
 echo "Removed old backups: $OLD_BACKUPS"
 
 echo "SUCCESS" >> $THESE_LOGS
-notify-send -a "Doom Emacs Updater" "Success" "Emacs is ready to go\! Yay Evil\!"
+popup "Success" "Emacs is ready to go\! Yay Evil\!"
