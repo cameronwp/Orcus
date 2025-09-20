@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 
-notify-send -a "Doom Emacs Updater" "Starting" "Please refrain from opening Emacs for a moment"
+notify-send -a "Doom Emacs Updater" "Starting update" "Please refrain from opening Emacs for a moment"
 
 # get doom emacs ready to go, regardless of whether or not it is already installed
 
@@ -38,22 +38,21 @@ fi
 if [ -d $HOME/.config/emacs ]; then
   BACKED_UP_DOOM=$HOME/.config/emacs.backup-$NOW
   CURRENT_DOOM_LOCATION=$HOME/.config/emacs
-  mv $HOME/.config/emacs $BACKED_UP_DOOM
+  cp -r $HOME/.config/emacs $BACKED_UP_DOOM
   echo "Backed up ~/.config/emacs to $BACKED_UP_DOOM" >> $THESE_LOGS
 fi
 
-# # copy the current version of doom over to XDG config
+# copy the current version of doom over to XDG config
 if [ ! -d $HOME/.config/emacs ]; then
-  rsync -rl --exclude=".cache" --exclude=".local" --exclude="eln-cache" /usr/local/etc/emacs $HOME/.config/
+  rsync -rlv --exclude ".cache" --exclude ".local" --exclude "eln-cache" /usr/local/etc/emacs $HOME/.config/
   echo "Copied /usr/local/etc/emacs to ~/.config/emacs" >> $THESE_LOGS
 fi
 
-$HOME/.config/emacs/bin/doom install --doomdir ~/.config/doom --force &> $THESE_LOGS || \
+$HOME/.config/emacs/bin/doom install --doomdir ~/.config/doom --force &>> $THESE_LOGS || \
   (failed "install" && exit 1)
 
-$HOME/.config/emacs/bin/doom sync --doomdir ~/.config/doom -e --force &> $THESE_LOGS || \
+$HOME/.config/emacs/bin/doom sync --doomdir ~/.config/doom -e --force &>> $THESE_LOGS || \
   (failed "sync" && exit 1)
-
 
 # make 100% sure there isn't a competing emacs installation
 rm -rf $HOME/.emacs $HOME/.emacs.d
