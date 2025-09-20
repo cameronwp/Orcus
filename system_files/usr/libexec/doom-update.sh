@@ -25,8 +25,8 @@ function failed {
   if [ -n $CURRENT_DOOM ]; then
     mv $BACKED_UP_DOOM $CURRENT_DOOM_LOCATION
     echo "Returned $BACKED_UP_DOOM to $CURRENT_DOOM_LOCATION" >> $THESE_LOGS
-    echo "FAILURE" >> $THESE_LOGS
   fi
+  echo "FAILURE" >> $THESE_LOGS
   popup "Something went wrong" "Failed to $@ Doom. See $THESE_LOGS for logs. All changes to your current setup have been reverted"
 }
 
