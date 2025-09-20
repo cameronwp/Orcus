@@ -3,6 +3,10 @@
 set -ouex pipefail
 
 
+# we're going to put files here
+mkdir -p /usr/local/etc
+
+
 ###
 ### various vanity changes
 ###
@@ -38,8 +42,10 @@ dnf5 clean all
 
 
 ###
-### related to Doom Emacs
+### Doom Emacs
 ###
+
+git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/local/etc/emacs
 
 # https://github.com/jessfraz/dockfmt/releases
 DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
@@ -58,7 +64,7 @@ systemctl --global enable doom-update.service
 ### oh-my-zsh
 ###
 
-git clone https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
+git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 
 
 ###
