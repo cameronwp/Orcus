@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# relevant docs about init.el: https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html
+# we prefer to use ~/.config/emacs alone, but we're going to symlink ~/.config/emacs to ~/.emacs.d too
+# (I'm not sure why, but sometimes Emacs gets confused and seems to want to create ~/.emacs.d when ~/.config/emacs exists)
+
 set -ouex pipefail
 
 function popup() {
@@ -30,6 +34,16 @@ function failed {
   popup "Something went wrong" "Failed to $@ Doom. See $THESE_LOGS for logs. All changes to your current setup have been reverted"
 }
 
+# users *should* only have an emacs config in one of these three places
+
+# backup ~/.emacs if it exists
+if [ -d $HOME/.emacs ]; then
+  BACKED_UP_DOOM=$HOME/.emacs.backup-$NOW
+  CURRENT_DOOM_LOCATION=$HOME/.emacs
+  mv $HOME/.emacs $BACKED_UP_DOOM
+  echo "Backed up ~/.emacs to $BACKED_UP_DOOM" >> $THESE_LOGS
+fi
+
 # backup ~/.emacs.d if it exists
 if [ -d $HOME/.emacs.d ]; then
   BACKED_UP_DOOM=$HOME/.emacs.d.backup-$NOW
@@ -49,7 +63,7 @@ fi
 # copy the current version of doom over to XDG config
 if [ ! -d $HOME/.config/emacs ]; then
   rsync -rlv --exclude ".cache" --exclude ".local" --exclude "eln-cache" /usr/local/etc/emacs $HOME/.config/
-  echo "Copied /usr/local/etc/emacs to ~/.config/emacs" >> $THESE_LOGS
+  echo "Synced the current version of Doom from /usr/local/etc/emacs to ~/.config/emacs" >> $THESE_LOGS
 fi
 
 $HOME/.config/emacs/bin/doom install --doomdir ~/.config/doom --force &>> $THESE_LOGS || \
@@ -58,8 +72,10 @@ $HOME/.config/emacs/bin/doom install --doomdir ~/.config/doom --force &>> $THESE
 $HOME/.config/emacs/bin/doom sync --doomdir ~/.config/doom -e --force &>> $THESE_LOGS || \
   (failed "sync" && exit 1)
 
-# make 100% sure there isn't a competing emacs installation
+# make 100% sure there isn't a competing emacs installation that is found before ~/.config/emacs
 rm -rf $HOME/.emacs $HOME/.emacs.d
+# even when it's not needed, ~/.emacs.d seems to randomly appear under some circumstances
+ln -s $HOME/.config/emacs $HOME/.emacs.d
 
 rm -rf $OLD_BACKUPS
 echo "Removed old backups: $OLD_BACKUPS"
