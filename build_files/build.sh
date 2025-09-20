@@ -3,10 +3,6 @@
 set -ouex pipefail
 
 
-# we're going to put files here
-mkdir -p /usr/local/etc
-
-
 ###
 ### various vanity changes
 ###

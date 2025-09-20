@@ -9,6 +9,7 @@ ARG BASE_IMAGE="kinoite"
 ARG VERSION=""
 ARG SHA_HEAD_SHORT=""
 
+# build.sh expects these files to be in the root
 COPY system_files /
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
