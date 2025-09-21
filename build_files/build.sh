@@ -3,6 +3,13 @@
 set -ouex pipefail
 
 
+# I'm not 100% sure why we need this. there seems to be a difference between the local and github build environments at this point
+# also, the -p should mean we don't need to check, but the build environment in github seems to get angry about mkdir -p /usr/local/bin
+if [ ! -d /usr/local/bin ]; then
+  mkdir -p /usr/local/bin
+fi
+
+
 ###
 ### various vanity changes
 ###
@@ -47,7 +54,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/local/etc/emacs
 DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
 curl -fSL "https://github.com/jessfraz/dockfmt/releases/download/v0.3.3/dockfmt-linux-amd64" -o "/tmp/dockfmt"
 echo "${DOCKFMT_SHA256} /tmp/dockfmt" | sha256sum -c -
-install /tmp/dockfmt /usr/local/bin
+install /tmp/dockfmt /usr/local/bin/
 
 # remove old desktop files for emacs before copying our custom file over later
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
@@ -68,8 +75,8 @@ git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 ###
 
 # https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation
-wget https://github.com/FrameworkComputer/framework-system/releases/latest/download/framework_tool -O /tmp/framework_tool
-install /tmp/framework_tool /usr/local/bin
+wget -q -O /tmp/framework_tool https://github.com/FrameworkComputer/framework-system/releases/download/v0.4.5/framework_tool
+install /tmp/framework_tool /usr/local/bin/
 
 
 ###
