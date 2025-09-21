@@ -9,7 +9,7 @@ Published images: [ghcr.io/cameronwp/orcus](https://github.com/cameronwp/Orcus/p
 ![latest](https://ghcr-badge.egpl.dev/cameronwp/orcus/tags?color=%2344cc11&ignore=sha256*&n=1&label=latest&trim=)&nbsp;![container size](https://ghcr-badge.egpl.dev/cameronwp/orcus/size?color=%2344cc11&tag=latest&label=image+size&trim=)
 ---
 
-A gently modified Kinoite build for my specific development needs and general preferences.
+A gently modified Kinoite build for my specific development needs, general preferences, and Framework laptop.
 
 **Features**:
 * layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main)
@@ -32,6 +32,7 @@ A gently modified Kinoite build for my specific development needs and general pr
 * a few default dotfiles
   - tmux, vim, zsh
 * removes the default Firefox installation that's missing codecs - you need to install the Firefox flatpak from Discover instead
+* installs [`framework_tool`](https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation)
 
 See [TESTING.md](TESTING.md) for a full list of changes.
 

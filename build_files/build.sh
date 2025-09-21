@@ -64,6 +64,15 @@ git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 
 
 ###
+### framework
+###
+
+# https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation
+wget https://github.com/FrameworkComputer/framework-system/releases/latest/download/framework_tool -O /tmp/framework_tool
+install /tmp/framework_tool /usr/local/bin
+
+
+###
 ### misc
 ###
 systemctl enable libvirtd
