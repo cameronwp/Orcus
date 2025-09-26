@@ -75,7 +75,7 @@ git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 ###
 
 # https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation
-wget -q -O /tmp/framework_tool https://github.com/FrameworkComputer/framework-system/releases/download/v0.4.5/framework_tool
+wget -q -O /tmp/framework_tool https://github.com/FrameworkComputer/framework-system/releases/latest/download/framework_tool
 install /tmp/framework_tool /usr/local/bin/
 
 

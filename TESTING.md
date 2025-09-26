@@ -27,3 +27,4 @@ After creating a new user
   - [X] ~/.config/doom is available
   - [X] doom, not vanilla emacs, always loads
   - [X] the updater can be disabled
+  - [X] nerd fonts are pre-installed (`.local/share/fonts/NFM.ttf`)
