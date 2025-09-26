@@ -8,7 +8,7 @@ General
 - [X] firefox is removed
 - [X] doom emacs is available in `/usr/local/etc/emacs`
 - [X] `dockfmt` installed
-- [ ] `framework_tool` installed
+- [X] `framework_tool` installed
 
 After creating a new user
 - [X] the shell is `zsh` by default
