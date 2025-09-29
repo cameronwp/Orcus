@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "dylan@blanque.com.ar",
+                "Name": "Dylan Blanque"
+            }
+        ],
+        "Category": "",
+        "Description": "Framework by Dylan Blanque",
+        "Id": "com.dblanque.framework",
+        "License": "GPLv2+",
+        "Name": "Framework",
+        "Website": "https://dylan.blanque.com.ar"
+    },
+    "X-Plasma-APIVersion": "2"
+}
