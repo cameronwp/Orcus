@@ -34,14 +34,21 @@ dnf5 install -y code
 # https://tailscale.com/kb/1511/install-fedora-2
 sudo dnf5 config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 sudo dnf5 install -y tailscale
-
-# VMs
-dnf5 group install -y --with-optional virtualization
+# uncomment to turn on tailscale by default
+# systemctl enable tailscaled
 
 # remove the firefox RPM that's missing codecs
 dnf5 remove -y firefox
 
-dnf5 clean all
+
+###
+### virtualization and containers
+###
+
+dnf5 group install -y --with-optional virtualization
+systemctl enable libvirtd
+
+systemctl enable podman.socket
 
 
 ###
@@ -78,11 +85,23 @@ git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 wget -q -O /tmp/framework_tool https://github.com/FrameworkComputer/framework-system/releases/latest/download/framework_tool
 install /tmp/framework_tool /usr/local/bin/
 
+# https://github.com/dblanque/framework-kde-splash
+find /usr/share/plasma/look-and-feel/com.dblanque.framework -type d -exec chmod 755 {} +
+find /usr/share/plasma/look-and-feel/com.dblanque.framework -type f -exec chmod 644 {} +
+
 
 ###
 ### misc
 ###
-systemctl enable libvirtd
-systemctl enable podman.socket
-# uncomment to turn on tailscale by default
-# systemctl enable tailscaled
+
+# install typst
+wget -q -O /tmp/typst-aarch64-unknown-linux-musl.tar.xz https://github.com/typst/typst/releases/latest/download/typst-aarch64-unknown-linux-musl.tar.xz
+tar -xf /tmp/typst-aarch64-unknown-linux-musl.tar.xz -C /tmp
+install /tmp/typst-aarch64-unknown-linux-musl/typst /usr/local/bin/
+
+
+###
+### clean up
+###
+
+dnf5 clean all
