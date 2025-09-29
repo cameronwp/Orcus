@@ -7,7 +7,7 @@
 set -ouex pipefail
 
 function popup() {
-  notify-send -a "Doom Emacs Updater" "$1" "$2" --icon=/usr/share/icons/doom-emacs/doom-emacs.svg
+  notify-send -a "Doom Emacs Updater" "$1" "$2" --icon=/usr/share/icons/doom-emacs/doom-emacs.svg --hint=STRING:desktop-entry:doom-emacs
 }
 
 popup "Starting update" "Please refrain from opening Emacs for a moment"
