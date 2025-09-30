@@ -7,6 +7,7 @@
 Published images: [ghcr.io/cameronwp/orcus](https://github.com/cameronwp/Orcus/pkgs/container/orcus)
 
 ![latest](https://ghcr-badge.egpl.dev/cameronwp/orcus/tags?color=%2344cc11&ignore=sha256*&n=1&label=latest&trim=)&nbsp;![container size](https://ghcr-badge.egpl.dev/cameronwp/orcus/size?color=%2344cc11&tag=latest&label=image+size&trim=)
+
 ---
 
 A gently modified Kinoite build for my specific development needs, general preferences, and [Framework 13 laptop](https://frame.work/laptop13).
