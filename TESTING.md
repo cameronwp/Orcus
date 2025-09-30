@@ -20,16 +20,16 @@
   - [X] launch media key to show/hide desktop
   - [X] ctrl-alt-t to open konsole
 - [X] custom icons are available
-- [ ] application launcher has the framework icon
-- [ ] framework splash screen from https://github.com/dblanque/framework-kde-splash
+- [X] application launcher defaults to the framework icon
+- [X] custom framework splash screen
   - [X] installed and available in system settings
-  - [ ] active by default
+  - [X] active by default
 - [ ] custom framework color profile
-  - [ ] available in display's color profile dropdown
-  - [ ] selected by default
-- [ ] custom framework speaker easy effects profile
-  - [ ] available in easy effects profile
-  - [ ] selected by default
+  - [X] available with `colormgr get-profiles`
+  - [ ] selected by default (try [this](https://www.reddit.com/r/kde/comments/1g9lyut/comment/lt768rp/)?)
+- [X] custom framework speaker easy effects profile
+  - [X] available in easy effects profile
+  - [X] selected by default
 
 ## Dotfiles
 - [X] the shell is `zsh` by default

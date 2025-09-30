@@ -39,10 +39,11 @@ A gently modified Kinoite build for my specific development needs, general prefe
 
 #### Framework-specific
 
+* display and sound profiles specific to Laptop 13
 * the application launcher uses the Framework icon
-* the KDE splash screen uses the Framework wordmark: [link](https://github.com/dblanque/framework-kde-splash)
+* the KDE splash screen uses the Framework wordmark and spinning icon
+  - modified from [link](https://github.com/dblanque/framework-kde-splash)
 * installs [`framework_tool`](https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation)
-* custom display and sound profiles specific to Laptop 13
 
 See [TESTING.md](TESTING.md) for a more detailed list of changes.
 
