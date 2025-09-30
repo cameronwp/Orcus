@@ -5,14 +5,17 @@
             {
                 "Email": "dylan@blanque.com.ar",
                 "Name": "Dylan Blanque"
+            },
+            {
+                "Name": "cameronwp"
             }
         ],
         "Category": "",
-        "Description": "Framework by Dylan Blanque",
-        "Id": "com.dblanque.framework",
+        "Description": "Framework",
+        "Id": "com.github.cameronwp.orcus.desktop",
         "License": "GPLv2+",
         "Name": "Framework",
-        "Website": "https://dylan.blanque.com.ar"
+        "Website": "https://github.com/cameronwp/orcus"
     },
     "X-Plasma-APIVersion": "2"
 }
