@@ -24,7 +24,7 @@
 - [X] custom framework splash screen
   - [X] installed and available in system settings
   - [X] active by default
-- [ ] custom framework color profile
+- [ ] custom framework color profile for 2K screen
   - [X] available with `colormgr get-profiles`
   - [ ] selected by default (try [this](https://www.reddit.com/r/kde/comments/1g9lyut/comment/lt768rp/)?)
 - [X] custom framework speaker easy effects profile

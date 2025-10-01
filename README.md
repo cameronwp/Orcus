@@ -2,6 +2,10 @@
 
 ![Orcus](system_files/usr/share/pixmaps/orcus.png)
 
+Orcus is a [dwarf planet](https://en.wikipedia.org/wiki/Orcus_(dwarf_planet)) and the name of this Fedora spin.
+
+*The planet artwork was modified from: [here](https://thesolarsystem.fandom.com/wiki/Orcus)*
+
 ---
 
 Published images: [ghcr.io/cameronwp/orcus](https://github.com/cameronwp/Orcus/pkgs/container/orcus)
@@ -14,7 +18,7 @@ A gently modified Kinoite build for my specific development needs, general prefe
 
 ### Features
 
-* layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main)
+* layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main) with Fedora 42
 * lots of my favorite utilities and programming langauges, see [packages.txt](build_files/packages.txt)
   - runtimes, compilers, dependency management, and utilities for Common Lisp, Golang, Julia, Python, Node, Rust
   - useful networking tools
@@ -41,7 +45,7 @@ A gently modified Kinoite build for my specific development needs, general prefe
 #### Framework-specific
 
 * sound profile specific to Laptop 13
-* display profile specific to Laptop 13 (WIP)
+* display profile specific to Laptop 13 2K screen (WIP)
 * the application launcher uses the Framework icon
 * the KDE splash screen uses the Framework wordmark and spinning icon
   - modified from [link](https://github.com/dblanque/framework-kde-splash)
@@ -51,4 +55,3 @@ See [TESTING.md](TESTING.md) for a more detailed list of changes.
 
 See the template's [README](docs/README.md) for more info.
 
-*Orcus logo modified from: https://thesolarsystem.fandom.com/wiki/Orcus*
