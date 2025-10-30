@@ -52,6 +52,15 @@ systemctl enable podman.socket
 
 
 ###
+### julia
+###
+
+# download juliaup directly instead of using their script. the script also wants to edit .zshrc, which we don't want to do at this point
+curl -fSL "https://julialang-s3.julialang.org/juliaup/bin/juliainstaller-1.18.8-x86_64-unknown-linux-musl" -o /tmp/juliaup
+install /tmp/juliaup /usr/local/bin/
+
+
+###
 ### Doom Emacs
 ###
 

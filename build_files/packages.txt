@@ -23,7 +23,7 @@ graphviz
 ImageMagick
 ImageMagick-heic
 inkscape
-julia
+inxi
 jq
 kde-gtk-config
 libheif-devel
@@ -33,6 +33,7 @@ lsd
 lsof
 lualatex
 /usr/bin/luahbtex
+lutris
 man-db
 man-pages
 nmap
