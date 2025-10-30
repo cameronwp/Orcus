@@ -51,10 +51,6 @@ export PATH=$PATH:$HOME/.config/emacs/bin
 # golang
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
-# julia
-export JULIA_NUM_THREADS=6
-export PATH=$PATH:$HOME/.julia/bin
-
 # rust
 export PATH=$PATH:$HOME/.local/cargo/bin
 # run the next line before sourcing the cargo env
