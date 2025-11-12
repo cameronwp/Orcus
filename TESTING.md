@@ -19,6 +19,8 @@
   - [X] alt-tab behavior
   - [X] launch media key to show/hide desktop
   - [X] ctrl-alt-t to open konsole
+  - [ ] ctrl-alt-{left,right} to switch virtual desktops
+  - [ ] ctrl-alt-shift-{left,right} to move windows between virtual desktops
 - [X] custom icons are available
 - [X] application launcher defaults to the framework icon
 - [X] custom framework splash screen
