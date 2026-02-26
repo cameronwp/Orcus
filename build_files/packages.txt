@@ -55,6 +55,7 @@ sqlite
 steam
 stellarium
 tcpdump
+texmacs
 traceroute
 util-linux-user
 uv
