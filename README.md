@@ -18,7 +18,7 @@ A gently modified Kinoite build for my specific development needs, general prefe
 
 ### Features
 
-* layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main) with Fedora 42
+* layered on top of [ublue-os/kinoite-main](https://github.com/ublue-os/main/pkgs/container/kinoite-main) with the penultimate version of Fedora
 * lots of my favorite utilities and programming langauges, see [packages.txt](build_files/packages.txt)
   - runtimes, compilers, dependency management, and utilities for Common Lisp, Golang, Julia, Python, Node, Rust
   - useful networking tools
