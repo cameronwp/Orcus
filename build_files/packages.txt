@@ -20,6 +20,7 @@ golang
 gnupg2
 gnuplot
 graphviz
+gutenprint-cups
 ImageMagick
 ImageMagick-heic
 inkscape
