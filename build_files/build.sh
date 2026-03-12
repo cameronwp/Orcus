@@ -95,6 +95,9 @@ wget -q -O /tmp/typst-aarch64-unknown-linux-musl.tar.xz https://github.com/typst
 tar -xf /tmp/typst-aarch64-unknown-linux-musl.tar.xz -C /tmp
 install /tmp/typst-aarch64-unknown-linux-musl/typst /usr/local/bin/
 
+# lemonade server
+dnf install -y /ctx/rpms/lemonade-server-10.0.0.x86_64.rpm
+
 
 ###
 ### clean up
