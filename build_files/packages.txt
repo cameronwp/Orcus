@@ -1,6 +1,7 @@
 aspell
 bat
 bzip2
+cloud-init
 cmake
 conda
 diffutils
