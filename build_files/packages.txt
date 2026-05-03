@@ -33,8 +33,6 @@ libtool
 libvterm
 lsd
 lsof
-lualatex
-/usr/bin/luahbtex
 lutris
 man-db
 man-pages
