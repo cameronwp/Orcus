@@ -39,7 +39,7 @@ dnf5 install -y tailscale
 
 # install ghostty
 # https://ghostty.org/docs/install/binary#fedora
-dnf5 copr enable scottames/ghostty
+dnf5 -y copr enable scottames/ghostty
 dnf5 install -y ghostty
 dnf5 copr remove scottames/ghostty
 
