@@ -40,7 +40,7 @@ dnf5 install -y tailscale
 # install ghostty
 # https://ghostty.org/docs/install/binary#fedora
 dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf5 install ghostty
+dnf5 install -y ghostty
 
 # remove the firefox RPM that's missing codecs
 dnf5 remove -y firefox
