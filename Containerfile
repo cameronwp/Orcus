@@ -2,7 +2,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Universal Blue Images: https://github.com/orgs/ublue-os/packages
-FROM ghcr.io/ublue-os/kinoite-main:43
+FROM ghcr.io/ublue-os/kinoite-main:44
 
 ARG IMAGE="orcus"
 ARG BASE_IMAGE="kinoite"
