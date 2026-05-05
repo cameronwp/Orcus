@@ -1,0 +1,5 @@
+font-family = "JuliaMono"
+background-opacity = 0.95
+cursor-style = block
+cursor-color = #717173
+shell-integration-features = no-cursor

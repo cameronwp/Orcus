@@ -272,9 +272,12 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
+[services][com.mitchellh.ghostty.desktop]
+new-window=none
+
 [services][org.gnome.Ptyxis.desktop]
 new-window=none
 
 [services][org.kde.konsole.desktop]
-NewWindow=Ctrl+Alt+T
+NewWindow=none
 _launch=none
