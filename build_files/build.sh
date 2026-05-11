@@ -102,7 +102,8 @@ tar -xf /tmp/typst-aarch64-unknown-linux-musl.tar.xz -C /tmp
 install /tmp/typst-aarch64-unknown-linux-musl/typst /usr/local/bin/
 
 # lemonade server
-dnf install -y /ctx/rpms/lemonade-server-10.0.0.x86_64.rpm
+# uninstalling in lieu of using a distrobox
+# dnf install -y /ctx/rpms/lemonade-server-10.0.0.x86_64.rpm
 
 
 ###
