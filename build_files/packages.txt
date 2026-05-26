@@ -1,3 +1,4 @@
+adobe-source-sans-pro-fonts
 aspell
 bat
 bzip2
@@ -17,9 +18,10 @@ gawk
 gimp
 git-all
 git-lfs
-golang
+google-roboto-fonts
 gnupg2
 gnuplot
+golang
 graphviz
 gutenprint-cups
 ImageMagick
