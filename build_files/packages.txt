@@ -14,6 +14,7 @@ emacs
 fd-find
 findutils
 fira-code-fonts
+fontawesome-fonts
 gawk
 gimp
 git-all
