@@ -23,6 +23,7 @@ google-roboto-fonts
 gnupg2
 gnuplot
 golang
+gparted
 graphviz
 gutenprint-cups
 ImageMagick
