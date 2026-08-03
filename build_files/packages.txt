@@ -66,6 +66,7 @@ util-linux-user
 uv
 vte-profile
 wget
+wimlib
 wl-clipboard
 xclip
 xorg-x11-xauth
