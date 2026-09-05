@@ -29,6 +29,7 @@ A gently modified Kinoite build for my specific development needs, general prefe
     - there's a service that syncs your Doom packages at every login. disable with `systemctl --user disable doom-updater.service`
 * ready-to-use virtualization
 * removes the default Firefox installation that's missing codecs - you need to install the Firefox flatpak from Discover instead
+* defaults to [ghostty](https://ghostty.org/) terminal
 
 #### Look and Feel
 

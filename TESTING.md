@@ -32,6 +32,7 @@
 - [X] custom framework speaker easy effects profile
   - [X] available in easy effects profile
   - [X] selected by default
+- [ ] defaults to ghostty terminal
 
 ## Dotfiles
 - [X] the shell is `zsh` by default
