@@ -46,6 +46,9 @@ dnf5 copr remove scottames/ghostty
 # remove the firefox RPM that's missing codecs
 dnf5 remove -y firefox
 
+# put back the Discover backend that shows OS updates in the GUI
+dnf5 install -y plasma-discover-rpm-ostree
+
 
 ###
 ### virtualization and containers
