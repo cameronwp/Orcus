@@ -41,6 +41,7 @@ lsof
 lutris
 man-db
 man-pages
+mangohud
 nmap
 nodejs
 openssh-clients
