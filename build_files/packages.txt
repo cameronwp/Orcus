@@ -15,6 +15,7 @@ fd-find
 findutils
 fira-code-fonts
 fontawesome-fonts
+gamescope
 gawk
 gimp
 git-all
