@@ -55,7 +55,7 @@ source /usr/share/fzf/shell/key-bindings.zsh
 alias emacs='emacs --init-directory=/usr/share/doomemacs'
 
 # golang
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:/usr/go/bin:$HOME/go/bin
 
 # rust
 export PATH=$PATH:$HOME/.local/cargo/bin
