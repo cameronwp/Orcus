@@ -156,9 +156,9 @@ sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra.repo /etc/yum.repos.d/te
 ###
 
 # install typst
-wget -q -O /tmp/typst-aarch64-unknown-linux-musl.tar.xz https://github.com/typst/typst/releases/latest/download/typst-aarch64-unknown-linux-musl.tar.xz
-tar -xf /tmp/typst-aarch64-unknown-linux-musl.tar.xz -C /tmp
-install /tmp/typst-aarch64-unknown-linux-musl/typst /usr/local/bin/
+wget -q -O /tmp/typst-x86_64-unknown-linux-musl.tar.xz https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz
+tar -xf /tmp/typst-x86_64-unknown-linux-musl.tar.xz -C /tmp
+install /tmp/typst-x86_64-unknown-linux-musl/typst /usr/bin/
 
 # lemonade server
 # uninstalling in lieu of using a distrobox
