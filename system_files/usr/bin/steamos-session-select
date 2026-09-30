@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+case "${1:-gamescope}" in
+  plasma*|desktop) target="plasma.desktop" ;;
+  *)               target="@SESSION@" ;;
+esac
+
+sudo -n /usr/libexec/set-sddm-session "$target"
+
+# End the current session; SDDM Relogin starts the newly selected one
+if [[ "${XDG_CURRENT_DESKTOP:-}" == *gamescope* ]]; then
+  steam -shutdown
+else
+  loginctl terminate-session self
+fi

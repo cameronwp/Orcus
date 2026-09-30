@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+conf=/etc/sddm.conf.d/zz-gamescope-autologin.conf
+
+case "${1:-}" in
+  plasma.desktop|@SESSION@) ;;
+  *) echo "refusing session: ${1:-<none>}" >&2; exit 1 ;;
+esac
+
+[[ -f "$conf" ]] || { echo "missing $conf" >&2; exit 1; }
+sed -i "s|^Session=.*|Session=$1|" "$conf"

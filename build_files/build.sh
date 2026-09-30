@@ -99,19 +99,57 @@ install /tmp/framework_tool /usr/local/bin/
 ### gamescope
 ###
 
+FEDORA_VER="$(rpm -E %fedora)"
+
+# Terra repo (gamescope build) + Bazzite COPR (session packages)
 dnf5 -y install --nogpgcheck \
   --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
   terra-release terra-release-extras
-dnf5 -y install --enable-repo=terra \
-  terra-gamescope.x86_64 terra-gamescope-libs.x86_64 terra-gamescope-libs.i686 \
-  gamescope-session-plus gamescope-session-steam
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-terra"${FEDORA_VER}"*
+dnf5 -y copr enable ublue-os/bazzite
 
+# Keep Fedora's gamescope from being pulled back in
+# (setopt replaces the exclude list; merge if you already set excludes)
+dnf5 -y config-manager setopt "fedora*".exclude="gamescope" "updates*".exclude="gamescope"
+
+# Replace Fedora gamescope if the base image has it, otherwise install fresh
+if rpm -q --quiet gamescope; then
+  dnf5 -y swap --repo=terra-extras gamescope terra-gamescope
+fi
+
+dnf5 -y install \
+  terra-gamescope.x86_64 \
+  terra-gamescope-libs.x86_64 \
+  terra-gamescope-libs.i686 \
+  gamescope-session \
+  gamescope-session-steam
+
+# Steam bootstrap so the first session launch doesn't have to download the client
 mkdir -p /usr/share/gamescope-session-plus
 curl --retry 3 -Lo /usr/share/gamescope-session-plus/bootstrap_steam.tar.gz \
   https://large-package-sources.nobaraproject.org/bootstrap_steam.tar.gz
 
-# disable terra
-sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra*.repo
+# Work out the session's .desktop name from the package
+SESSION_DESKTOP="$( (rpm -ql gamescope-session-steam | grep -E '/wayland-sessions/[^/]+\.desktop$' || true) | head -n1 | xargs -r basename)"
+if [[ -z "${SESSION_DESKTOP}" ]]; then
+  echo "ERROR: gamescope-session-steam installed no wayland-sessions .desktop" >&2
+  exit 1
+fi
+echo "Gamescope session: ${SESSION_DESKTOP}"
+
+# ── Session switching (Steam "Switch to Desktop" <-> Plasma) ──
+
+sed -i "s|@SESSION@|${SESSION_DESKTOP}|g" \
+  /usr/bin/steamos-session-select /usr/libexec/set-sddm-session
+chmod 0755 /usr/bin/steamos-session-select /usr/libexec/set-sddm-session
+
+chmod 0440 /etc/sudoers.d/steamos-session-select
+visudo -cf /etc/sudoers.d/steamos-session-select
+
+# ── Clean up repos so they don't leak into the running system ──
+dnf5 -y copr disable ublue-os/bazzite
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra.repo /etc/yum.repos.d/terra-extras.repo
+
 
 ###
 ### misc

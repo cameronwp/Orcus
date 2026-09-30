@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Steam (Gamescope)
+Comment=Steam Big Picture in a Gamescope session
+Exec=gamescope-session-plus ogui-steam
+Type=Application
+DesktopNames=gamescope

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Enter Gaming Mode
+Exec=steamos-session-select gamescope
+Icon=steam
+Type=Application
+Categories=Game;
