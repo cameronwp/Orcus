@@ -72,7 +72,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/local/etc/emacs
 DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
 curl -fSL "https://github.com/jessfraz/dockfmt/releases/download/v0.3.3/dockfmt-linux-amd64" -o "/tmp/dockfmt"
 echo "${DOCKFMT_SHA256} /tmp/dockfmt" | sha256sum -c -
-install /tmp/dockfmt /usr/local/bin/
+install /tmp/dockfmt /usr/bin/
 
 # remove old desktop files for emacs before copying our custom file over later
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
@@ -85,7 +85,7 @@ systemctl --global enable doom-update.service
 ### oh-my-zsh
 ###
 
-git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
+git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/share/oh-my-zsh
 
 
 ###
@@ -94,7 +94,7 @@ git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh /usr/local/etc/ohmyzsh
 
 # https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation
 wget -q -O /tmp/framework_tool https://github.com/FrameworkComputer/framework-system/releases/latest/download/framework_tool
-install /tmp/framework_tool /usr/local/bin/
+install /tmp/framework_tool /usr/bin/
 
 
 ###

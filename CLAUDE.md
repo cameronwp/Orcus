@@ -64,7 +64,7 @@ Known noise:
 ## oh-my-zsh
 
 - Cloned (depth 1) to `/usr/share/oh-my-zsh`.
-- zshrc sets, before sourcing: `ZSH=/usr/share/oh-my-zsh`, `ZSH_CACHE_DIR` and `ZSH_COMPDUMP` under `~/.cache/oh-my-zsh`, `ZSH_CUSTOM=~/.config/oh-my-zsh`, `zstyle ':omz:update' mode disabled`, `DISABLE_AUTO_UPDATE=true`, and `alias emacs='emacs --init-directory=/usr/share/doomemacs'`.
+- zshrc sets, before sourcing: `ZSH=/usr/share/oh-my-zsh`, `ZSH_CACHE_DIR` and `ZSH_COMPDUMP` under `~/.cache/oh-my-zsh`, `ZSH_CUSTOM=~/.config/ohmyzsh-custom`, `zstyle ':omz:update' mode disabled`, and `DISABLE_AUTO_UPDATE=true`. (Planned with the Doom move: `alias emacs='emacs --init-directory=/usr/share/doomemacs'`.)
 - `/etc/skel` only affects new users; existing `~/.zshrc` files need manual edits.
 
 ## Migration in progress (as of 2026-09-30 — verify against current files)

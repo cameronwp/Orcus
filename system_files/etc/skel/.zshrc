@@ -19,10 +19,18 @@ export PATH=$PATH:$HOME/.local/bin
 ###
 
 # this is a non-standard setup for oh-my-zsh that lets us update omz when this image is built
-# - base installation is in /usr/local/etc/ohmyzsh - you can't edit this
+# - base installation is in /usr/share/oh-my-zsh - you can't edit this
 # - plugins and all customizations live in $HOME/.config/ohmyzsh-custom - you can edit this
-export ZSH=/usr/local/etc/ohmyzsh
+# - cache and completion dump live in $HOME/.cache/oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 export ZSH_CUSTOM=$HOME/.config/ohmyzsh-custom
+export ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+export ZSH_COMPDUMP=$ZSH_CACHE_DIR/.zcompdump-${HOST}-${ZSH_VERSION}
+mkdir -p $ZSH_CACHE_DIR
+
+# updates come from image rebuilds, not omz itself
+zstyle ':omz:update' mode disabled
+DISABLE_AUTO_UPDATE=true
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
