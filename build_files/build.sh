@@ -96,6 +96,24 @@ install /tmp/framework_tool /usr/local/bin/
 
 
 ###
+### gamescope
+###
+
+dnf5 -y install --nogpgcheck \
+  --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
+  terra-release terra-release-extras
+dnf5 -y install --enable-repo=terra \
+  terra-gamescope.x86_64 terra-gamescope-libs.x86_64 terra-gamescope-libs.i686 \
+  gamescope-session-plus gamescope-session-steam
+
+mkdir -p /usr/share/gamescope-session-plus
+curl --retry 3 -Lo /usr/share/gamescope-session-plus/bootstrap_steam.tar.gz \
+  https://large-package-sources.nobaraproject.org/bootstrap_steam.tar.gz
+
+# disable terra
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra*.repo
+
+###
 ### misc
 ###
 
