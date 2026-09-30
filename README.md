@@ -56,4 +56,3 @@ A gently modified Kinoite build for my specific development needs, general prefe
 See [TESTING.md](TESTING.md) for a more detailed list of changes.
 
 See the template's [README](docs/README.md) for more info.
-
