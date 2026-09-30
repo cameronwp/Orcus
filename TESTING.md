@@ -32,11 +32,12 @@
 - [X] custom framework speaker easy effects profile
   - [X] available in easy effects profile
   - [X] selected by default
-- [ ] defaults to ghostty terminal
-- [ ] Discover offers OS updates
-  - [ ] `plasma-discover-rpm-ostree` is installed
-  - [ ] Discover's Updates page lists an Orcus system update (or "reboot to apply" when the nightly timer already staged one)
+- [X] defaults to ghostty terminal
+- [X] Discover offers OS updates
+  - [X] `plasma-discover-rpm-ostree` is installed
+  - [X] Discover's Updates page lists an Orcus system update (or "reboot to apply" when the nightly timer already staged one)
   - [ ] applying the update from Discover deploys the new image and reboots into it
+- [X] login to gamescope from SDDM
 
 ## Dotfiles
 - [X] the shell is `zsh` by default

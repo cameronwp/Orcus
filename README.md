@@ -30,6 +30,7 @@ A gently modified Kinoite build for my specific development needs, general prefe
 * ready-to-use virtualization
 * removes the default Firefox installation that's missing codecs - you need to install the Firefox flatpak from Discover instead
 * defaults to [ghostty](https://ghostty.org/) terminal
+* The option to boot into Steam Gamescope from SDDM
 
 #### Look and Feel
 
