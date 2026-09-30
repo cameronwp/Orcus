@@ -61,7 +61,9 @@ systemctl enable podman.socket
 ###
 
 # read-only core; per-user state lives in $DOOMLOCALDIR (see /usr/lib/environment.d/60-doomemacs.conf)
-git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/share/doomemacs
+# modules live in the sources/doom+ submodule; without it Doom loads with no modules
+git clone --depth 1 --recurse-submodules --shallow-submodules https://github.com/doomemacs/doomemacs /usr/share/doomemacs
+test -d /usr/share/doomemacs/sources/doom+/modules/ui
 ln -s /usr/share/doomemacs/bin/doom /usr/bin/doom
 
 # https://github.com/jessfraz/dockfmt/releases

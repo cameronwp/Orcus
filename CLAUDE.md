@@ -55,7 +55,7 @@ Known noise:
 
 ## Doom Emacs
 
-- Core cloned (depth 1, keep `.git`) to `/usr/share/doomemacs`; `/usr/bin/doom` symlinks to its `bin/doom`. Core updates come only from image rebuilds.
+- Core cloned (depth 1, keep `.git`, **with `--recurse-submodules`**: all non-core modules live in the `sources/doom+` submodule, and without it Doom silently loads with no modules) to `/usr/share/doomemacs`; `/usr/bin/doom` symlinks to its `bin/doom`. Core updates come only from image rebuilds.
 - Writable state redirected per user via `DOOMLOCALDIR=${HOME}/.local/share/doomemacs/` and `DOOMPROFILELOADFILE=${HOME}/.local/share/doomemacs/profiles/load.el`, set in **both** `/usr/lib/environment.d/60-doomemacs.conf` (graphical session + systemd user services) and `/etc/profile.d/doomemacs.sh` (TTY/SSH).
 - User config stays in `~/.config/doom` and installs many packages.
 - `doom-update.service` (user unit, `systemctl --global enable`) runs **`doom sync` only** at login — never `doom upgrade`/`git pull`, since core is read-only. This keeps user packages in step with the core. It has worked reliably; don't remove it.
