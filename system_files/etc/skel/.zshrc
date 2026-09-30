@@ -5,8 +5,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 export GREP_COLORS='mt=1;33'
 
 # emacs all the things
-export EDITOR="/usr/bin/emacs -nw"
-export VISUAL="/usr/bin/emacs -nw"
+export EDITOR="/usr/bin/emacs --init-directory=/usr/share/doomemacs -nw"
+export VISUAL="/usr/bin/emacs --init-directory=/usr/share/doomemacs -nw"
 
 # more user binaries
 export PATH=$PATH:$HOME/.local/bin
@@ -51,7 +51,8 @@ source /usr/share/fzf/shell/key-bindings.zsh
 ###
 
 # doom emacs
-export PATH=$PATH:$HOME/.config/emacs/bin
+# core is read-only in /usr/share/doomemacs; `doom` is already on the PATH
+alias emacs='emacs --init-directory=/usr/share/doomemacs'
 
 # golang
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin

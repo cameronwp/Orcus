@@ -26,7 +26,8 @@ A gently modified Kinoite build for my specific development needs, general prefe
   - apps like [Stellarium](https://stellarium.org/) (of course), [Steam](https://store.steampowered.com/)
   - [Sigil](https://sigil-ebook.com/) for epub editing
 * ([doom](https://github.com/doomemacs/doomemacs)) emacs comes pre-installed
-    - there's a service that syncs your Doom packages at every login. disable with `systemctl --user disable doom-updater.service`
+    - there's a service that syncs your Doom packages at every login. disable with `systemctl --user disable doom-update.service`
+    - Doom core is read-only in `/usr/share/doomemacs` and updates with the image; your packages live in `~/.local/share/doomemacs`, your config in `~/.config/doom`
 * ready-to-use virtualization
 * removes the default Firefox installation that's missing codecs - you need to install the Firefox flatpak from Discover instead
 * defaults to [ghostty](https://ghostty.org/) terminal

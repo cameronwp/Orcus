@@ -1,5 +1,5 @@
 [Unit]
-Description=Install or update Doom Emacs
+Description=Sync Doom Emacs packages
 After=graphical-session.target
 
 [Service]

@@ -72,7 +72,8 @@ Known noise:
 - [ ] Remove the `mkdir -p /usr/local/bin` guard at the top of `build.sh`.
 - [ ] Move all `/usr/local/bin` installs (dockfmt, framework_tool, typst) to `/usr/bin`.
 - [x] Fix typst: it downloads the **aarch64** tarball; use `typst-x86_64-unknown-linux-musl.tar.xz`.
-- [ ] Move Doom to `/usr/share/doomemacs` and oh-my-zsh to `/usr/share/oh-my-zsh` as described above; update `doom-update.service`, `emacs.desktop`, and zshrc.
+- [x] Move Doom to `/usr/share/doomemacs` and oh-my-zsh to `/usr/share/oh-my-zsh` as described above; update `doom-update.service`, `doom-emacs.desktop`, and zshrc (confirm with a build).
+- [ ] On existing machines after rollout: update `~/.zshrc` (EDITOR/VISUAL, `emacs` alias, drop `~/.config/emacs/bin` from PATH) and remove the old per-user copy `~/.config/emacs` + `~/.emacs.d` symlink.
 - [ ] Add `RUN bootc container lint` as the final Containerfile step.
 - [x] Drop the `ublue-os/bazzite` COPR from the gamescope section (confirm with a build).
 - [ ] On existing machines after rollout: `sudo rm -rf /var/usrlocal/etc/{emacs,ohmyzsh}` once the new paths work.

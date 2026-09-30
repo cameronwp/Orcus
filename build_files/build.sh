@@ -3,12 +3,6 @@
 set -ouex pipefail
 
 
-# I'm not 100% sure why we need this. there seems to be a difference between the local and github build environments at this point
-# also, the -p should mean we don't need to check, but the build environment in github seems to get angry about mkdir -p /usr/local/bin
-if [ ! -d /usr/local/bin ]; then
-  mkdir -p /usr/local/bin
-fi
-
 FEDORA_VER="$(rpm -E %fedora)"
 
 
@@ -66,7 +60,9 @@ systemctl enable podman.socket
 ### Doom Emacs
 ###
 
-git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/local/etc/emacs
+# read-only core; per-user state lives in $DOOMLOCALDIR (see /usr/lib/environment.d/60-doomemacs.conf)
+git clone --depth 1 https://github.com/doomemacs/doomemacs /usr/share/doomemacs
+ln -s /usr/share/doomemacs/bin/doom /usr/bin/doom
 
 # https://github.com/jessfraz/dockfmt/releases
 DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
@@ -77,7 +73,7 @@ install /tmp/dockfmt /usr/bin/
 # remove old desktop files for emacs before copying our custom file over later
 rm /usr/share/applications/emacs.desktop /usr/share/applications/emacs-mail.desktop
 
-# update doom when users log in
+# sync doom packages when users log in
 systemctl --global enable doom-update.service
 
 
