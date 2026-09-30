@@ -4,12 +4,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 # something grep was compaining about
 export GREP_COLORS='mt=1;33'
 
-# vim all the things
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
-
-bindkey -v
-export KEYTIMEOUT=1
+# emacs all the things
+export EDITOR="/usr/bin/emacs -nw"
+export VISUAL="/usr/bin/emacs -nw"
 
 # more user binaries
 export PATH=$PATH:$HOME/.local/bin
