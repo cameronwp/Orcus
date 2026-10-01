@@ -57,6 +57,20 @@ systemctl enable podman.socket
 
 
 ###
+### image signing
+###
+
+# require CI's cosign signature on this image (only enforced after `bootc switch --enforce-container-sigpolicy`)
+# key: Containerfile copies cosign.pub; signatures are found via /etc/containers/registries.d/orcus.yaml
+jq '.transports.docker["ghcr.io/cameronwp/orcus"] = [{
+      "type": "sigstoreSigned",
+      "keyPath": "/etc/pki/containers/orcus.pub",
+      "signedIdentity": {"type": "matchRepository"}
+    }]' /etc/containers/policy.json >/tmp/policy.json
+install -m 644 /tmp/policy.json /etc/containers/policy.json
+
+
+###
 ### Doom Emacs
 ###
 

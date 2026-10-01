@@ -12,6 +12,9 @@ ARG SHA_HEAD_SHORT=""
 # build.sh expects these files to be in the root
 COPY system_files /
 
+# public half of the key CI signs with; see the image signing section in build.sh
+COPY cosign.pub /etc/pki/containers/orcus.pub
+
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \

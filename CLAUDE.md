@@ -53,6 +53,13 @@ Session switching:
 Known noise:
 - Terra mirror curl errors (unresolvable `mirror.us.zephyra.lol`, checksum mismatches on stale mirrors) are harmless as long as the transaction ends in `Complete!`; dnf5 falls back to other mirrors.
 
+## Image signing
+
+- CI signs every pushed tag with cosign (`SIGNING_SECRET` secret; public key `cosign.pub`). It must pass `--new-bundle-format=false --use-signing-config=false`: cosign 3 defaults to Sigstore bundles, which containers/image (bootc, podman, skopeo) can't read, so verification fails with "no signature exists". Legacy signatures show up in GHCR as `sha256-<digest>.sig` tags.
+- The image ships the key at `/etc/pki/containers/orcus.pub` (Containerfile `COPY`), `/etc/containers/registries.d/orcus.yaml` (`use-sigstore-attachments`), and a `sigstoreSigned` rule for `ghcr.io/cameronwp/orcus` merged into `/etc/containers/policy.json` with `jq` in build.sh. Scope the rule to the repo, not `ghcr.io/cameronwp`, so other unsigned images there still pull.
+- Enforcement is per machine: `sudo bootc switch --enforce-container-sigpolicy ghcr.io/cameronwp/orcus:latest`. Any later `bootc switch` without the flag silently drops back to unverified.
+- Key rotation: ship old and new public keys for one release before signing with the new key, or every machine needs a manual re-switch.
+
 ## Doom Emacs
 
 - Core cloned (depth 1, keep `.git`, **with `--recurse-submodules`**: all non-core modules live in the `sources/doom+` submodule, and without it Doom silently loads with no modules) to `/usr/share/doomemacs`; `/usr/bin/doom` symlinks to its `bin/doom`. Core updates come only from image rebuilds.
