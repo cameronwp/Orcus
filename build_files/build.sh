@@ -60,10 +60,8 @@ systemctl enable podman.socket
 ### Doom Emacs
 ###
 
-# read-only core; per-user state lives in $DOOMLOCALDIR (see /usr/lib/environment.d/60-doomemacs.conf)
-# modules live in the sources/doom+ submodule; without it Doom loads with no modules
+# read-only core doom. the per-user state lives in $DOOMLOCALDIR (see /usr/lib/environment.d/60-doomemacs.conf)
 git clone --depth 1 --recurse-submodules --shallow-submodules https://github.com/doomemacs/doomemacs /usr/share/doomemacs
-test -d /usr/share/doomemacs/sources/doom+/modules/ui
 ln -s /usr/share/doomemacs/bin/doom /usr/bin/doom
 
 # https://github.com/jessfraz/dockfmt/releases
@@ -121,12 +119,6 @@ dnf5 -y install \
   gamescope-session \
   gamescope-session-steam
 
-# SDDM's Gaming Mode entry; Steam's "Switch to Desktop" exits back to SDDM
-test -f /usr/share/wayland-sessions/gamescope-session-steam.desktop
-
-# ── Clean up repos so they don't leak into the running system ──
-sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra.repo /etc/yum.repos.d/terra-extras.repo
-
 
 ###
 ### misc
@@ -146,4 +138,5 @@ install /tmp/typst-x86_64-unknown-linux-musl/typst /usr/bin/
 ### clean up
 ###
 
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra.repo /etc/yum.repos.d/terra-extras.repo
 dnf5 clean all
