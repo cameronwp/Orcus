@@ -85,6 +85,17 @@ Known noise:
 - [x] Drop the `ublue-os/bazzite` COPR from the gamescope section (confirm with a build).
 - [ ] On existing machines after rollout: `sudo rm -rf /var/usrlocal/etc/{emacs,ohmyzsh}` once the new paths work.
 
+## Security follow-ups (from 2026-10-01 audit — verify against current files)
+
+- [x] Pin `ublue-os/container-storage-action` to a commit SHA (it runs in the signing job).
+- [x] Sign by pushed digest (`steps.push.outputs.digest`), not by tag.
+- [ ] Signing key has an empty password (no `COSIGN_PASSWORD` in CI), so the local `cosign.key` is effectively plaintext. Delete the local copy or re-encrypt and add `COSIGN_PASSWORD` as a secret.
+- [ ] Terra bootstrap uses `--nogpgcheck`; import Terra's key against a pinned fingerprint first.
+- [ ] `framework_tool` and `typst` download `releases/latest` with no checksum; pin version + sha256 like dockfmt. Doom/oh-my-zsh clone default-branch HEAD (pinning optional).
+- [ ] `cloud-init` in `packages.txt` (added 2026-03-27): a `cidata`-labelled USB at boot can inject users/SSH keys/root commands. Remove unless needed for VM testing.
+- [ ] `disk_config/iso.toml` kickstart runs `bootc switch` without `--enforce-container-sigpolicy`, so fresh installs are unverified.
+- [ ] `build-disk.yml`: `osbuild/bootc-image-builder-action@main` unpinned; builder image `ghcr.io/lorbuschris/...` from a personal account, pinned by tag not digest.
+
 ## Working style
 
 - Make minimal, targeted edits to `build.sh`; keep its `###` section structure.

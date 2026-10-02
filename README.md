@@ -54,6 +54,25 @@ A gently modified Kinoite build for my specific development needs, general prefe
   - modified from [link](https://github.com/dblanque/framework-kde-splash)
 * installs [`framework_tool`](https://github.com/FrameworkComputer/framework-system?tab=readme-ov-file#installation)
 
+### Switching to Orcus
+
+Images are signed with [cosign.pub](cosign.pub) in CI. Switch with signature verification enforced:
+
+```bash
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/cameronwp/orcus:latest
+```
+
+If you're coming from a non-Orcus image, the signing policy isn't on the machine yet. Run the command without `--enforce-container-sigpolicy` first, reboot, then run it again with the flag and reboot.
+
+Confirm verification is on (look for `"signature": "containerPolicy"`):
+
+```bash
+sudo bootc status --format=json | jq '.status.booted.image.image'
+```
+
+> [!WARNING]
+> Any later `bootc switch` without `--enforce-container-sigpolicy` (e.g. to test a local build) silently turns verification off. Re-run the command above to turn it back on.
+
 See [TESTING.md](TESTING.md) for a more detailed list of changes.
 
 See the template's [README](docs/README.md) for more info.
