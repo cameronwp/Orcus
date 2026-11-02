@@ -45,6 +45,7 @@ nmap
 nodejs
 openssh-clients
 pandoc
+pigz
 podman-compose
 procps-ng
 python3-crypto
