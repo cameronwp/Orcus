@@ -14,7 +14,7 @@ emacs
 fd-find
 findutils
 fira-code-fonts
-fontawesome-fonts
+fontawesome-fonts-all
 gawk
 gimp
 git-all
@@ -57,7 +57,6 @@ rsync
 sbcl
 shadow-utils
 shellcheck
-shfmt
 sigil
 sqlite
 steam
