@@ -152,5 +152,5 @@ install /tmp/typst-x86_64-unknown-linux-musl/typst /usr/bin/
 ### clean up
 ###
 
-sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/terra.repo /etc/yum.repos.d/terra-extras.repo
+dnf5 -y config-manager setopt terra.enabled=0 terra-extras.enabled=0
 dnf5 clean all
